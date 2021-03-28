@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchTask } from '../actions';
+import { Task } from './Task';
 
 export const TaskArea = () => {
   const tasks = useSelector(state => state.tasks);
@@ -13,7 +14,7 @@ export const TaskArea = () => {
   return (
     <ul>
       {tasks.length && tasks.map(task => (
-        <li key={task.id}>{task.name}</li>
+        <Task name={task.name} key={task.id}/>
       ))}
     </ul>
   );
