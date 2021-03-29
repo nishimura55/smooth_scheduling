@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const Task = ({ name }) => {
+export const Task = ({ name, hours }) => {
   return (
-    <li>{name}</li>
+    <li>{name} ({hours}H)</li>
   );
 }

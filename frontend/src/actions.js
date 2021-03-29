@@ -11,7 +11,7 @@ export const fetchTasks = () => {
   }
 }
 
-export const addTask = (name) => {
+export const addTask = (name, hours) => {
   return dispatch => {
     fetch(targetUrl, {
       method: "POST",
@@ -21,7 +21,8 @@ export const addTask = (name) => {
       },
       body: JSON.stringify({
         task: {
-          name: name
+          name: name,
+          hours: hours,
         },
       })
     }).then(response => {
@@ -29,8 +30,7 @@ export const addTask = (name) => {
         return response.json()
       }
     }).then(task => {
-      console.log(task)
-      dispatch({ type: 'add_task', task_name: task.name });
+      dispatch({ type: 'add_task', task: task });
     })
   }
 }

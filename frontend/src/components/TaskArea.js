@@ -12,12 +12,14 @@ export const TaskArea = () => {
     dispatch(fetchTasks());
   }, [])
 
+  console.log(tasks);
+
   return (
     <>
       <Input/>
       <ul>
-        {tasks.length && tasks.map((name, index) =>
-          <Task name={name} key={index}/>
+        {tasks.map(([name, hours], index) =>
+          <Task name={name} hours={hours} key={index}/>
         )}
       </ul>
     </>

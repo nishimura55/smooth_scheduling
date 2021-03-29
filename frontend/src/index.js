@@ -5,9 +5,9 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { App } from './components/App';
 import reducer from './reducer';
+import "./index.scss";
 
 const store = createStore(reducer, applyMiddleware(thunk));
-// const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>

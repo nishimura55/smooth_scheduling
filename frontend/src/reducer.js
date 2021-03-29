@@ -8,14 +8,14 @@ export default (state = initialState, action) => {
       return {
         tasks: [
           ...state.tasks,
-          ...action.tasks
+          ...action.tasks,
         ]
       }
     case 'add_task':
       return {
         tasks: [
           ...state.tasks,
-          action.task_name
+          action.task,
         ]
       }
     default:
