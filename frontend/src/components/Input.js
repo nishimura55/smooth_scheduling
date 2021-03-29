@@ -6,8 +6,6 @@ export const Input = () => {
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
 
-  // const token = document.querySelector('meta[name="csrf-token"]').content;
-
   const submitTask = (e) => {
     e.preventDefault();
     dispatch(addTask(inputValue));
