@@ -1,10 +1,5 @@
 const initialState = {
-  tasks: [
-    {
-      id: 0,
-      name: "始めのタスク"
-    }
-  ]
+  tasks: []
 };
 
 export default (state = initialState, action) => {
@@ -14,6 +9,13 @@ export default (state = initialState, action) => {
         tasks: [
           ...state.tasks,
           ...action.tasks
+        ]
+      }
+    case 'add_task':
+      return {
+        tasks: [
+          ...state.tasks,
+          action.task_name
         ]
       }
     default:

@@ -1,21 +1,25 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchTask } from '../actions';
+import { fetchTasks } from '../actions';
 import { Task } from './Task';
+import { Input } from './Input';
 
 export const TaskArea = () => {
   const tasks = useSelector(state => state.tasks);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchTask());
+    dispatch(fetchTasks());
   }, [])
 
   return (
-    <ul>
-      {tasks.length && tasks.map(task => (
-        <Task name={task.name} key={task.id}/>
-      ))}
-    </ul>
+    <>
+      <Input/>
+      <ul>
+        {tasks.length && tasks.map((name, index) =>
+          <Task name={name} key={index}/>
+        )}
+      </ul>
+    </>
   );
 }
