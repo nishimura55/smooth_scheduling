@@ -1,7 +1,17 @@
 import React from 'react';
 
 export const Task = ({ name, hours }) => {
+  const assignTask = () => {
+    console.log('hoge');
+  };
+
   return (
-    <li>{name} ({hours}H)</li>
+    <li className='task'>
+      {name} ({hours}H)
+      {hours == 0 ?
+        <button className='check'> ✔︎ </button> :
+        <button onClick={assignTask} className='un-check'> → </button>
+      }
+    </li>
   );
 }

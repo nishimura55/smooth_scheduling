@@ -12,8 +12,6 @@ export const TaskArea = () => {
     dispatch(fetchTasks());
   }, [])
 
-  console.log(tasks);
-
   return (
     <>
       <Input/>
