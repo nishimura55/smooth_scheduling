@@ -1,18 +1,44 @@
-.number-input {
-  width: 50px;
-  margin-left: 5px;
+.main-area {
+  font-family: ヒラギノ丸ゴ ProN;
+  padding: 30px 150px;
+  .task-area {
+    .number-input {
+      width: 50px;
+      margin-left: 5px;
+    }
+    .task {
+      margin-bottom:  10px;
+      .un-check {
+        background: #CCFF99;
+        border: 2px solid #4CAF50;
+        border-radius: 4px;
+      }
+    }
+  }
+  .shedule-area {
+    ul {
+      padding-left: 100px;
+      list-style: none;
+      .hour-index {
+        float: left;
+        padding-right: 5px;
+      }
+      .hour {
+        height: 30px;
+        width: 200px;
+        border: 2px solid;
+        border-bottom: none;
+        float: right;
+      }
+    }
+  }
+}
+
+.box {
+  float: left;
+  display: inline-block;
 }
 
 button {
   margin-left: 5px;
-}
-
-.task {
-  margin-bottom:  10px;
-}
-
-.un-check {
-  background: #CCFF99;
-  border: 2px solid #4CAF50;
-  border-radius: 4px;
 }

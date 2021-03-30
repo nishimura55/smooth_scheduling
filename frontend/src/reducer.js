@@ -1,5 +1,6 @@
 const initialState = {
-  tasks: []
+  tasks: [],
+  schedules: Array(18).fill(null),
 };
 
 export default (state = initialState, action) => {
@@ -9,14 +10,16 @@ export default (state = initialState, action) => {
         tasks: [
           ...state.tasks,
           ...action.tasks,
-        ]
+        ],
+        schedules: state.schedules,
       }
     case 'add_task':
       return {
         tasks: [
           ...state.tasks,
           action.task,
-        ]
+        ],
+        schedules: state.schedules,
       }
     default:
       return state;

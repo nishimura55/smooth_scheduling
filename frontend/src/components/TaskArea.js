@@ -13,13 +13,13 @@ export const TaskArea = () => {
   }, [])
 
   return (
-    <>
+    <div className='task-area box'>
       <Input/>
       <ul>
         {tasks.map(([name, hours], index) =>
           <Task name={name} hours={hours} key={index}/>
         )}
       </ul>
-    </>
+    </div>
   );
 }
