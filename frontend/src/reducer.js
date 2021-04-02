@@ -1,9 +1,17 @@
-const initialState = {
-  tasks: [],
-  schedules: Array(18).fill(null),
+const initialState = () => {
+  let schedules = [];
+
+  for (let i = 0; i < 18; i++) {
+    schedules.push({task: null, selected: false});
+  }
+
+  return {
+    tasks: [],
+    schedules: schedules,
+  }
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState(), action) => {
   switch (action.type) {
     case 'set_tasks':
       return {
@@ -20,6 +28,18 @@ export default (state = initialState, action) => {
           action.task,
         ],
         schedules: state.schedules,
+      }
+    case 'turn_on_selected_hours':
+      state.schedules[action.index].selected = true;
+      return {
+        tasks: [...state.tasks],
+        schedules: [...state.schedules],
+      }
+    case 'turn_off_selected':
+      state.schedules[action.index].selected = false;
+      return {
+        tasks: [...state.tasks],
+        schedules: [...state.schedules],
       }
     default:
       return state;

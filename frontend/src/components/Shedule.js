@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Hour } from './Hour';
 
@@ -8,8 +8,8 @@ export const Shedule = () => {
   return (
     <div className='shedule-area box'>
       <ul>
-        {schedules.map((schedule, index) => 
-          <Hour schedule={schedule} times={index+6} key={index}/>
+        {schedules.map(({task, selected}, index) => 
+          <Hour task={task} selected={selected} index={index} key={index}/>
         )}
       </ul>
     </div>

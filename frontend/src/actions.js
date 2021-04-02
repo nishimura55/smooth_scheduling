@@ -1,6 +1,14 @@
 const targetUrl = 'http://localhost:3000/tasks';
 
-// thunk
+export const turnOffSelected = (index) => {
+  return { type: 'turn_off_selected', index: index }
+}
+
+export const turnOnSelectedHours = (index) => {
+  return { type: 'turn_on_selected_hours', index: index }
+}
+
+// thunks
 export const fetchTasks = () => {
   return dispatch => {
     fetch(targetUrl).then(response => {
