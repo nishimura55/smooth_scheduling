@@ -1,15 +1,15 @@
 const targetUrl = 'http://localhost:3000/tasks';
 
-export const turnOffSelected = (index) => {
-  return { type: 'turn_off_selected', index: index }
-}
-
 export const turnOnSelectedHours = (index) => {
   return { type: 'turn_on_selected_hours', index: index }
 }
 
-export const assignTask = (name) => {
-  return { type: 'assign_task', name: name }
+export const turnOffSelected = (index) => {
+  return { type: 'turn_off_selected', index: index }
+}
+
+export const assignTask = (task) => {
+  return { type: 'assign_task', task: task }
 }
 
 // thunks

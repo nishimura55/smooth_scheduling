@@ -2,12 +2,14 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { assignTask } from '../actions';
 
-export const Task = ({ name, hours }) => {
+export const Task = (task) => {
   const dispatch = useDispatch();
-  const anySelected = useSelector((state) => state.schedules.some((s) => s.selected))
+  const anySelected = useSelector((state) => Object.values(state.schedules).some((s) => s.selected))
+
+  const { name, hours } = task;
 
   const assign = () => {
-    anySelected && dispatch(assignTask(name));
+    anySelected && dispatch(assignTask(task));
   };
 
   return (

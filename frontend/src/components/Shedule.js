@@ -8,8 +8,8 @@ export const Shedule = () => {
   return (
     <div className='shedule-area box'>
       <ul>
-        {schedules.map(({task, selected}, index) => 
-          <Hour task={task} selected={selected} index={index} key={index}/>
+        {Object.values(schedules).map(({name, selected}, index) =>
+          <Hour name={name} selected={selected} index={index} key={index}/>
         )}
       </ul>
     </div>

@@ -16,8 +16,8 @@ export const TaskArea = () => {
     <div className='task-area box'>
       <Input/>
       <ul>
-        {tasks.map(({name, hours}, index) =>
-          <Task name={name} hours={hours} key={index}/>
+        {Object.values(tasks).map(({name, hours}, index) =>
+          <Task name={name} hours={hours} index={index} key={index}/>
         )}
       </ul>
     </div>
