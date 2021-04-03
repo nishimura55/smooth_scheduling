@@ -46,7 +46,7 @@ export default (state = initialState(), action) => {
       selectedSchedules.forEach((s) => {
         s.task = action.name;
       })
-      state.tasks.find((t) => t[0] == action.name)[1] -= selectedSchedules.length;
+      state.tasks.find((t) => t.name == action.name).hours -= selectedSchedules.length;
       return {
         tasks: [...state.tasks],
         schedules: [...state.schedules],
