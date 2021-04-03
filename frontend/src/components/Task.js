@@ -1,8 +1,13 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { assignTask } from '../actions';
 
 export const Task = ({ name, hours }) => {
-  const assignTask = () => {
-    console.log('hoge');
+  const dispatch = useDispatch();
+  const anySelected = useSelector((state) => state.schedules.some((s) => s.selected))
+
+  const assign = () => {
+    anySelected && dispatch(assignTask(name));
   };
 
   return (
@@ -10,7 +15,7 @@ export const Task = ({ name, hours }) => {
       {name} ({hours}H)
       {hours == 0 ?
         <button className='check'> ✔︎ </button> :
-        <button onClick={assignTask} className='un-check'> → </button>
+        <button onClick={assign} className='un-check'> → </button>
       }
     </li>
   );

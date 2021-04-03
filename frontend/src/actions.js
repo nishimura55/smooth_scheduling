@@ -8,6 +8,10 @@ export const turnOnSelectedHours = (index) => {
   return { type: 'turn_on_selected_hours', index: index }
 }
 
+export const assignTask = (name) => {
+  return { type: 'assign_task', name: name }
+}
+
 // thunks
 export const fetchTasks = () => {
   return dispatch => {

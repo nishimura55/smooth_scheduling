@@ -19,7 +19,7 @@ export default (state = initialState(), action) => {
           ...state.tasks,
           ...action.tasks,
         ],
-        schedules: state.schedules,
+        schedules: [...state.schedules],
       }
     case 'add_task':
       return {
@@ -27,7 +27,7 @@ export default (state = initialState(), action) => {
           ...state.tasks,
           action.task,
         ],
-        schedules: state.schedules,
+        schedules: [...state.schedules],
       }
     case 'turn_on_selected_hours':
       state.schedules[action.index].selected = true;
@@ -37,6 +37,16 @@ export default (state = initialState(), action) => {
       }
     case 'turn_off_selected':
       state.schedules[action.index].selected = false;
+      return {
+        tasks: [...state.tasks],
+        schedules: [...state.schedules],
+      }
+    case 'assign_task':
+      const selectedSchedules = state.schedules.filter((s) => s.selected)
+      selectedSchedules.forEach((s) => {
+        s.task = action.name;
+      })
+      state.tasks.find((t) => t[0] == action.name)[1] -= selectedSchedules.length;
       return {
         tasks: [...state.tasks],
         schedules: [...state.schedules],
